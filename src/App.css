@@ -1,4 +1,34 @@
-.App {
+html,body{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background-color:rgb(245,245,245);
+
+    /* text-align: center; */
+}
+.container{
+  margin:80px auto 0 auto;
+}
+.nav-container{
+  margin:auto;
+}
+a{
+  text-decoration: none;
+}
+.login{
+  align:center
+}
+
+
+
+
+
+
+
+
+
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +65,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
