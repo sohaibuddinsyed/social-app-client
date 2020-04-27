@@ -19,7 +19,7 @@ const styles={
     image:{
         minWidth:200
     },
-    content:{
+     content:{
         padding:25,
         objectFit:'cover'
     }
