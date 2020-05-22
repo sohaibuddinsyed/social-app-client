@@ -11,7 +11,7 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles={
+const styles = {
     form:{
         textAlign:'Center'
     },
@@ -21,17 +21,23 @@ const styles={
     },
     pageTitle:{
         margin:'1000 auto 80 auto'
-
+    
     },
     button:{
-        marginTop:20
+        marginTop:20,
+        position: 'relative'
     },
     customError:{
         marginTop:20,
-        color:'red'
+        color:'red',
+        style : 'bold',
+        size:'20'
+    },
+    progress:{
+        position: 'absolute'
     }
-
-}
+    }
+        ;
 
 class login extends Component {
     constructor(){
@@ -55,9 +61,13 @@ class login extends Component {
             axios.post('/login', userData)
             .then( res=>{
                 console.log(res.data);
+                localStorage.setItem('FBIdToken',`Bearer ${res.data.token}`);
+               
                 this.setState({
                     loading:false
                 });
+                
+
                 this.props.history.push('/');
             })
             .catch(err =>{
@@ -74,6 +84,7 @@ class login extends Component {
     };
     render() {
         const {classes}=this.props;
+        
         const {errors, loading}= this.state;
         
         return (
@@ -110,15 +121,25 @@ class login extends Component {
                     value={this.state.password} 
                     onChange={this.handleChange} 
                     fullWidth></TextField>
+                    
                     {errors.general && (
                         <Typography variant='body2' className={classes.customError}>
                             {errors.general}
                             
                         </Typography>
                     )}
-                        <Button className={classes.button} type="submit" variant="contained" color="primary">Login</Button>
+                        <Button className={classes.button} type="submit" 
+                        variant="contained" color="primary" disabled={loading}>Login
+                        {
+                            loading &&(
+                                <CircularProgress className={classes.progress} size={30} ></CircularProgress>
+                            )
+
+                        }
+                        </Button>
                         <br></br>
                         <small>New? Signup now.<Link to='/signup'> click here</Link></small>
+                        
                     </form>
                 </Grid>
            
