@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import {MuiThemeProvider} from '@material-ui/core/styles'
 import {createMuiTheme} from '@material-ui/core/styles'
+import themefile from './util/util'
 //components
 import Navbar from './components/Navbar'
 //pages
@@ -10,44 +11,7 @@ import home from './pages/home';
 import signup from './pages/signup';
 import login from './pages/login';
 
-const theme= createMuiTheme({
-  palette: {
-    primary: {
-      main: '#e65100',
-      contrastText:'#fff'
-    },
-    secondary: {
-      main: '#4a148c',
-    }
-  },
-  typography:{
-    useNextVariants: true
-  },
-  
-  form:{
-    textAlign:'Center'
-},
-image:{
-    maxWidth:200,
-    margin:'80 auto 80 auto' 
-},
-pageTitle:{
-    margin:'1000 auto 80 auto'
-
-},
-button:{
-    marginTop:20,
-    position: 'relative'
-},
-customError:{
-    marginTop:20,
-    color:'red'
-},
-progress:{
-    position: 'absolute'
-}
-  
-})
+const theme= createMuiTheme(themefile)
 
 class App extends Component{
   render(){

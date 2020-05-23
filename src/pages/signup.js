@@ -10,33 +10,11 @@ import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress';
-
-const styles={
-    
-  form:{
-    textAlign:'Center'
-},
-image:{
-    maxWidth:200,
-    margin:'80 auto 80 auto' 
-},
-pageTitle:{
-    margin:'1000 auto 80 auto'
-
-},
-button:{
-    marginTop:20,
-    position: 'relative'
-},
-customError:{
-    marginTop:20,
-    color:'red'
-},
-progress:{
-    position: 'absolute'
-}
-}
-
+const styles = (theme)=>(
+    {
+        ... theme
+    }
+)
 class signup extends Component {
     constructor(){
         super();

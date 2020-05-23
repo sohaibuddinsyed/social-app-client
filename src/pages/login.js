@@ -11,33 +11,11 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = {
-    form:{
-        textAlign:'Center'
-    },
-    image:{
-        maxWidth:200,
-        margin:'80 auto 80 auto' 
-    },
-    pageTitle:{
-        margin:'1000 auto 80 auto'
-    
-    },
-    button:{
-        marginTop:20,
-        position: 'relative'
-    },
-    customError:{
-        marginTop:20,
-        color:'red',
-        style : 'bold',
-        size:'20'
-    },
-    progress:{
-        position: 'absolute'
+const styles = (theme)=>(
+    {
+        ... theme
     }
-    }
-        ;
+)
 
 class login extends Component {
     constructor(){
@@ -155,3 +133,7 @@ login.propTypes={
 }
 
 export default withStyles(styles)(login)
+// Login component is passed as an argument to WithStyles.
+// styles object becomes a property in login.
+//  we name the new prop classes.
+// Hence styles object can be accessed from a login prop i.e classes classes.button
